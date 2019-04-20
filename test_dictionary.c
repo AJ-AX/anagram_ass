@@ -4,6 +4,7 @@
 #include "dictionary.h"
 
 int count = 0;
+int lists = 0;
 
 void print_list(VNode *head){
 	VNode *cur = head;
@@ -20,6 +21,7 @@ void print_list(VNode *head){
 		}
 		printf("End of List. Size [%d]\n", r);
 		count += r;
+		lists++;
 	}
 }
 
@@ -89,6 +91,7 @@ int main (int argc, char ** argv) {
 	}
 
 	printf("Total Anagrams: [%d]\n", count);
+	printf("Total Anagram Lists/Groups: [%d]\n", lists);
 	
 	return 0;
 }
