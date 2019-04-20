@@ -4,9 +4,14 @@
 //forms hash value for string s
 //this produces a starting value in the dictionary array
 unsigned hash(const char *s) {
-	unsigned hashval;
+	unsigned hashval = 0;
 	//TODO - implement polynomial hashing of string s
 	
+	// Hashval uses 31, but number can be changed.
+	int l = strlen(s);
+	for(int i = 0; i < l; i++){
+		hashval = (hashval<<5) * 31 + s[i];
+	}
 	return hashval ;
 }
 
@@ -100,7 +105,7 @@ char *copystr(const char *s) { /* make a duplicate of s */
 	char *p;
 	int len = strlen(s);
 
-	p = (char *) malloc(len+1); /* +1 for ’\0’ */
+	p = (char *) malloc(len+1); /* +1 for ï¿½\0ï¿½ */
 	if (p != NULL)
 		strncpy(p, s, len);
 	p[len] = '\0';
